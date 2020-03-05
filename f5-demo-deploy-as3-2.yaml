@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: f5-demo1-as3 
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: f5-demo1-as3
+    spec:
+      containers:
+      - name: f5-demo1-as3
+        image: "f5devcentral/f5-hello-world:latest"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          protocol: TCP
